@@ -141,7 +141,7 @@ const addProduct = (params) => {
 }
 
 export const productsData = {
-    data: products.slice(),
+    data: products,
     updateProduct,
     addProduct
 }

@@ -2719,7 +2719,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     var productsData = {
-      data: products.slice(),
+      data: products,
       updateProduct: updateProduct,
       addProduct: addProduct
     };

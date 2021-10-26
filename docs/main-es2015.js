@@ -1420,7 +1420,7 @@ const addProduct = (params) => {
     return product;
 };
 const productsData = {
-    data: products.slice(),
+    data: products,
     updateProduct,
     addProduct
 };
