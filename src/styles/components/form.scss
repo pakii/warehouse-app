@@ -1,0 +1,47 @@
+@import '../variables.scss';
+
+.c-form-control {
+    select {
+        cursor: pointer;
+    }
+
+    input,
+    select {
+        width: 100%;
+        color: $secondary;
+        height: $input-height;
+        padding: 3px 6px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        outline: none;
+        font-size: 1.4rem;
+
+        &.ng-invalid.ng-dirty  {
+            color: red;
+            border: 2px solid red;
+        }
+
+        &:focus {
+            border: 2px solid $secondary;
+        }
+        &:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+    }
+}
+
+.c-form-control-error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+label {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $secondary;
+}

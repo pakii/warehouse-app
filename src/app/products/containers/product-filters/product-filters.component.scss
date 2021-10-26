@@ -1,0 +1,22 @@
+@import '../../../../styles/variables.scss';
+
+.search {
+    position: relative;
+
+    &__clear {
+        position: absolute;
+        right: 0;
+        color: $primary;
+    }
+}
+
+.list {
+    &__item {
+        color: $secondary;
+    }
+}
+.filter-active {
+    font-weight: bold;
+    color: $primary;
+}
+

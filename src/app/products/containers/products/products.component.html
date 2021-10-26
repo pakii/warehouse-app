@@ -1,0 +1,27 @@
+<div class="products">
+    <section class="products__filters p-2">
+        <div class="products__filters__list pr-2 mb-2">
+            <app-product-filters></app-product-filters>
+        </div>
+        <div class="products__filters__clear">
+            <button class="c-button c-button--secondary"
+                routerLink="/products">
+                Clear filters <span class="close "></span>
+            </button>
+        </div>
+    </section>
+    <section class="products__products-list p-2">
+        <h2 class="mb-2">Products</h2>
+        <div class="products__products-list__list pr-2 mb-2">
+            <app-products-list
+                [products]="products$ | async">
+            </app-products-list>
+        </div>
+        <div>
+            <button class="c-button c-button--primary"
+                routerLink="/products/new">
+                Add
+            </button>
+        </div>
+    </section>
+</div>

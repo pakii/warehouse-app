@@ -1,0 +1,47 @@
+@import '../variables.scss';
+
+.c-button {
+    height: $input-height;
+    padding: 0px 15px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: #fff;
+    
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    &--primary {
+        background-color: $primary;
+        
+        &:hover:enabled {
+            background-color: #eee;
+            color: $primary;
+        }
+    }
+
+    &--secondary {
+        background-color: $secondary;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        
+        &:hover {
+            background-color: #eee;
+            color: $primary;
+        }
+    }
+}
+
+.close:after {
+    display: inline-block;
+    cursor: pointer;
+    height: $input-height;
+    line-height: $input-height;
+    text-align: center;
+    content: '\00d7';
+    color: inherit;
+    font-weight: bold;
+    font-size: 20px;
+}

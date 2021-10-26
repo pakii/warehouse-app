@@ -1,0 +1,94 @@
+<form class="product-form p-2"
+    [formGroup]="form"
+    (submit)="save()">
+    <h2 class="mb-2">
+        <ng-container
+            *ngIf="isEdit; else createProductHeader">
+            Update Product {{product?.code}}
+        </ng-container>
+        <ng-template #createProductHeader>
+            Create Product
+        </ng-template>
+    </h2>
+
+    <div class="product-form__controls">
+        <ng-template #requiredError>This field is required.</ng-template>
+
+        <div class="c-form-control"
+            *ngIf="!isEdit">
+            <label for="code">Code:</label>
+            <input class="u-d-block"
+                id="code"
+                type="text"
+                [ngClass]="{ 'c-form-control--error': code.valid || code.pristine }"
+                formControlName="code">
+            <p class="c-form-control-error"
+                [ngClass]="{ 'u-invisible': code.valid || code.pristine }">
+                <ng-container *ngIf="code.errors?.pattern; else requiredError">
+                    Code must consit of 2-4 uppercase letters followed with a space and 4-6 digits, e.g. MYTZ 123456 or MY 3247.
+                </ng-container>
+            </p>
+        </div>
+
+        <div class="c-form-control">
+            <label for="quantity">Quantity:</label>
+            <input class="u-d-block"
+                id="quantity"
+                type="number"
+                min="0"
+                formControlName="quantity">
+            <p class="c-form-control-error"
+                [ngClass]="{ 'u-invisible': quantity.valid || quantity.pristine }">
+                <ng-container *ngTemplateOutlet="requiredError"></ng-container>
+            </p>
+        </div>
+
+        <div class="c-form-control">
+            <label for="floor">Floor:</label>
+            <select class="u-d-block"
+                name="floor"
+                id="floor"
+                formControlName="floorId"
+                (change)="onFloorChange($event.target.value)">
+                <option *ngFor="let floor of floors"
+                    [value]="floor.id">
+                    {{ floor.name }}
+                </option>
+            </select>
+            <p class="c-form-control-error"
+                [ngClass]="{ 'u-invisible': floorId.valid || floorId.pristine }">
+                <ng-container *ngTemplateOutlet="requiredError"></ng-container>
+            </p>
+        </div>
+
+        <div class="c-form-control">
+            <label for="section">Section:</label>
+            <select class="u-d-block"
+                id="section"
+                name="section"
+                formControlName="sectionId">
+                <option *ngFor="let section of sections"
+                    [value]="section.id">
+                    {{ section.name }}
+                </option>
+            </select>
+            <p class="c-form-control-error"
+                [ngClass]="{ 'u-invisible': sectionId.valid || sectionId.pristine }">
+                <ng-container *ngTemplateOutlet="requiredError"></ng-container>
+            </p>
+        </div>
+    </div>
+
+    <div class="product-form__actions">
+        <button class="c-button c-button--primary"
+            type="submit"
+            [disabled]="form.pristine || form.invalid">
+            Save
+        </button>
+        <button class="c-button c-button--secondary ml-1"
+            (click)="goBack()"
+            type="button">
+            Cancel
+        </button>
+    </div>
+</form>

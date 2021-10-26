@@ -1,0 +1,26 @@
+@import './../../../../styles/variables.scss';
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    height: $nav-height;
+    background: $primary;
+    color: #fff;
+
+    &__logo {
+        width: 35px;
+        height: 35px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        fill: #fff;
+        mask: url('./../../../../assets//warehouse_storage_icon.svg');
+        background-color: #fff;
+    }
+}
+
+.main {
+    height: calc(100vh - #{$nav-height});
+    width: 70%;
+    margin: 0 auto;
+}

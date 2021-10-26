@@ -1,0 +1,14 @@
+@import '../../../../styles/variables.scss';
+
+.product-li {
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    display: block;
+    color: #000;
+
+    &:hover {
+        color: #fff;
+        background-color: $primary;
+    }
+}

@@ -1,0 +1,48 @@
+
+<div class="search">
+    <div class="c-form-control">
+        <label for="search-input">Filter:</label>
+        <input type="text"
+            id="search-input"
+            [formControl]="searchControl">
+        <span class="search__clear close mr-1"
+            *ngIf="searchControl.value"
+            (click)="clearSearch()">
+        </span>
+    </div>
+</div>
+
+<div class="pt-2">
+    <label for="floors-list">Floors:</label>
+    <ul class="list ml-1"
+        id="floors-list">
+        <li class="list__item"
+            *ngFor="let floor of floors$ | async">
+            <a class="list__item__link"
+                routerLink="/products"
+                [queryParams]="{ floor: floor.id, filter: searchControl.value || undefined}"
+                routerLinkActive="filter-active"
+                (click)="selectFloor(floor)">
+                {{floor.name}}
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="pt-2"
+    *ngIf="selectedFloor">
+    <label for="sections-list">Sections:</label>
+    <ul class="list ml-1"
+        id="sections-list">
+        <li class="list__item"
+            *ngFor="let section of selectedFloor.sections">
+            <a class="list__item__link"
+                routerLink="/products"
+                [queryParams]="{ section: section.id }"
+                queryParamsHandling="merge"
+                routerLinkActive="filter-active">
+                {{section.name}}
+            </a>
+        </li>
+    </ul>
+</div>
